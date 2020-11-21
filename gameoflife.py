@@ -14,14 +14,16 @@ st.write('____')
 
 #il prodotto di convoluzione secondo l'opzione 'same', fa scorrere il centro del kernel su ogni numero di table e calcola la somma dei rispettivi prodotti, così abbiamo come output la matrice dei neighbors
 
-SIZE = 40,40
+SIZE = 70,70
 kernel = np.array([[1,1,1],[1,0,1],[1,1,1]]).astype(np.uint8) # il kernel per il prodotto di convoluzione
 signal=True
 
 
 if st.sidebar.button("Start",key='1'):
 
-    table = np.random.randint(0, 2, size=SIZE).astype(np.uint8) # disponiamo le cellule random
+    table =np.zeros((SIZE)).astype(np.uint8) # costruiamo la griglia di zero
+    rand=np.random.randint(0, 2, size=[10,10]).astype(np.uint8) # disponiamo le cellule random al centro in un quadrato 10x10
+    table[29:39,29:39]=rand  # inseriamo il quadrato nella griglia
 
     with st.empty():
 
